@@ -27,7 +27,7 @@ use super::model::{APIDatum, Method};
 use super::utils::get_time;
 
 type WSStream = WebSocketStream<
-    tokio_tungstenite::stream::Stream<TcpStream, tokio_native_tls::TlsStream<TcpStream>>,
+    tokio_tungstenite::MaybeTlsStream<TcpStream>,
 >;
 pub type StoredStream = SplitStream<WSStream>;
 
@@ -265,6 +265,7 @@ fn parse_message(msg: Message) -> Result<KucoinWebsocketMsg, APIError> {
         Message::Pong(..) => Ok(KucoinWebsocketMsg::Pong),
         Message::Ping(..) => Ok(KucoinWebsocketMsg::Ping),
         Message::Close(..) => Err(APIError::Other("Socket closed error".to_string())),
+        _ => panic!("Not implemented")
     }
 }
 

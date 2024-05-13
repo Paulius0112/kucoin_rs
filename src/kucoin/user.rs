@@ -5,7 +5,7 @@ use super::client::Kucoin;
 use super::error::APIError;
 use super::model::user::{
     AccountHolds, AccountId, AccountInfo, AccountType, Accounts, DepositAddress, DepositList,
-    DepositListV1, OrderId, SingleAccount, SubAccountBalances, TransferableBalance, UserInfo,
+    DepositListV1, OrderId, SingleAccount, SubAccountBalances, TransferableBalance, ,
     WithdrawalId, WithdrawalList, WithdrawalListV1, WithdrawalQuotas,
 };
 use super::model::{APIData, APIDatum, Method, Pagination};
@@ -15,6 +15,7 @@ impl Kucoin {
     pub async fn get_user_subaccount_info(&self) -> Result<APIData<UserInfo>, APIError> {
         let endpoint = String::from("/api/v1/sub/user");
         let url = format!("{}{}", &self.prefix, endpoint);
+        println!("Formating url query");
         let header = self
             .sign_headers(endpoint, None, None, Method::GET)
             .unwrap();

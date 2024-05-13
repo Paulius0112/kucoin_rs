@@ -1,9 +1,14 @@
+use serde::{Serialize, Deserialize};
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct UserInfo {
-    pub user_id: String,
+    #[serde(rename = "userId")]
+    pub user_id: Option<String>,
+    pub uid: u64,
     pub sub_name: String,
     pub remarks: String,
+    pub r#type: u32,
+    pub access: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

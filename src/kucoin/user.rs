@@ -5,8 +5,8 @@ use super::client::Kucoin;
 use super::error::APIError;
 use super::model::user::{
     AccountHolds, AccountId, AccountInfo, AccountType, Accounts, DepositAddress, DepositList,
-    DepositListV1, OrderId, SingleAccount, SubAccountBalances, TransferableBalance, ,
-    WithdrawalId, WithdrawalList, WithdrawalListV1, WithdrawalQuotas,
+    DepositListV1, OrderId, SingleAccount, SubAccountBalances, TransferableBalance,
+    WithdrawalId, WithdrawalList, WithdrawalListV1, WithdrawalQuotas, UserInfo,
 };
 use super::model::{APIData, APIDatum, Method, Pagination};
 use super::utils::format_query;
